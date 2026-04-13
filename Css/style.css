@@ -438,8 +438,8 @@ footer {
 .panel_carrito {
     position: fixed;
     top: 0;
-    right: -550px;
-    width: 500px;
+    right: -630px;
+    width: 580px;
     height: 100vh;
     background-color: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(15px);
@@ -511,6 +511,7 @@ footer {
 .producto_en_carrito {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 12px;
@@ -523,23 +524,38 @@ footer {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
+.img-carrito-mini {
+    width: 50px;
+    height: 50px;
+    object-fit: contain; 
+    background-color: rgba(255, 255, 255, 0.05); 
+    border-radius: 8px;
+    padding: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    margin-right: 10px; 
+}
+
 .nombre-item {
-    font-size: 15px;
+    font-size: 14px;
     margin: 0;
     font-weight: 500;
     color: var(--text-primary);
     flex: 1;
+    margin-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .controles-cantidad {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 8px;
     background-color: transparent;
     padding: 8px 12px;
     border-radius: 10px;
     border: none;
-    margin-left:0 25px;
+    margin:0 10px;
 }
 
 .btn-restar, .btn-sumar {
@@ -573,8 +589,9 @@ footer {
     font-size: 17px;
     color: var(--accent-gold);
     font-weight: 700;
-    margin: 0 25px; 
-    min-width: 90px;
+    margin-left: 15px;
+    margin-right: 10px;
+    min-width: 85px;
     text-align: right;
 }
 

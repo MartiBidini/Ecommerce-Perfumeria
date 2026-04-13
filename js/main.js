@@ -27,9 +27,13 @@ flechaDerecha.addEventListener("click", () => {
 });
 
 function MostrarPerfumes(Perfumes) {
-    Perfumes.forEach(perfume => {
+        Perfumes.forEach((perfume, i) => {
         const div = document.createElement("div");
         div.classList.add("card");
+        
+        div.setAttribute('data-aos', 'fade-up');
+        div.setAttribute('data-aos-delay', i * 100);
+
         div.innerHTML = `
             <img src="${perfume.imagen}" alt="${perfume.Nombre}">
             <h3>${perfume.Nombre}</h3>
@@ -40,6 +44,7 @@ function MostrarPerfumes(Perfumes) {
         ContenedorPerfumes.appendChild(div);
     });
 }
+AOS.refresh();
 
 //Panel de carrito
 const botonAbrirCarrito = document.getElementById("abrir-carrito");
@@ -109,6 +114,7 @@ function mostrarCarrito() {
         const div = document.createElement("div");
         div.classList.add("producto_en_carrito"); 
         div.innerHTML = `
+        <img src="${producto.imagen}" alt="${producto.Nombre}" class="img-carrito-mini">
             <p class="nombre-item">${producto.Nombre}</p>
             <div class="controles-cantidad">
                 <button class="btn-restar" id="restar-${producto.id}">-</button>

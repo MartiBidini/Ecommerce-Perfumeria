@@ -9,5 +9,5 @@
     {"id": 7, "Nombre": "Club de Nuit Intense", "Categoria": "Hombre - Dia o Noche", "Precio": 95000, "imagen": "images/ClubdeNuitIntense.png"},
     {"id": 8, "Nombre": "Hawas Ice", "Categoria": "Hombre - Dia", "Precio": 70000, "imagen": "images/HawasIce.png"},
     {"id": 9, "Nombre": "Honor & Glory", "Categoria": "Mujer o Hombre - Dia o Noche ", "Precio": 80000, "imagen": "images/HonorandGlory.png"},
-    {"id": 10, "Nombre": "The Kingdom For Men", "Categoria": "Hombre - Noche", "Precio": 90000, "imagen": "images/TheKindomForMen.png"}
+    {"id": 10, "Nombre": "The Kingdom", "Categoria": "Hombre - Noche", "Precio": 90000, "imagen": "images/TheKindomForMen.png"}
 ]

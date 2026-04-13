@@ -1,0 +1,120 @@
+/*header y hero*/
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+        justify-content: space-around;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .logo-hero { 
+        width: 180px; 
+        margin-bottom: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px; 
+    }
+
+    .btn-ver-catalogo {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+/*Catalogo*/
+
+@media (max-width: 768px) {
+    
+    .botones-flecha {
+        padding: 0 !important;
+    }
+
+
+    .slider {
+        gap: 0 !important; 
+        padding: 0 !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    
+    .card {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        scroll-snap-align: center; 
+        
+        
+        padding: 30px 45px !important; 
+        border-radius: 0; 
+    }
+
+    #flecha-izquierda, #flecha-derecha {
+        width: 45px !important;
+        height: 45px !important;
+        background-color: rgba(26, 26, 26, 0.8) !important;
+        z-index: 20;
+    }
+
+    #flecha-izquierda { left: 10px; }
+    #flecha-derecha { right: 10px; }
+}
+
+/*Carrito*/
+
+@media (max-width: 768px) {
+    .panel_carrito {
+        width: 100%;
+        right: -100%;
+        padding: 20px;
+    }
+
+    .producto_en_carrito {
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+
+    .nombre-item {
+        font-size: 13px;
+        width: 100%; 
+    }
+}
+
+/*Checkout*/
+
+@media (max-width: 768px) {
+    .checkout-modal-wrap {
+        grid-template-columns: 1fr; 
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .resumen-compra {
+        order: 1; 
+        padding: 20px;
+    }
+
+    .contenido-form-fields {
+        order: 2; 
+        padding: 20px;
+        border-right: none;
+        border-top: var(--border-subtle);
+    }
+
+    .fila-inputs {
+        flex-direction: column; 
+        gap: 0;
+    }
+
+    .header-form h2 {
+        font-size: 22px;
+    }
+}

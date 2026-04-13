@@ -18,13 +18,30 @@ const ContenedorPerfumes = document.getElementById("contenedor_perfumes");
 const flechaIzquierda = document.getElementById("flecha-izquierda");
 const flechaDerecha = document.getElementById("flecha-derecha");
 
-flechaIzquierda.addEventListener("click", () => {
-    ContenedorPerfumes.scrollLeft -= 600; 
-});
+const moverSlider = (direccion) => {
+    
+    const anchoVisibles = document.querySelector('.slider').clientWidth;
 
-flechaDerecha.addEventListener("click", () => {
-    ContenedorPerfumes.scrollLeft += 600; 
-});
+    if (window.innerWidth < 768) {
+        
+        if (direccion === "derecha") {
+            document.querySelector('.slider').scrollBy({ left: anchoVisibles, behavior: 'smooth' });
+        } else {
+            document.querySelector('.slider').scrollBy({ left: -anchoVisibles, behavior: 'smooth' });
+        }
+    } else {
+    
+        if (direccion === "derecha") {
+            document.querySelector('.slider').scrollLeft += 600;
+        } else {
+            document.querySelector('.slider').scrollLeft -= 600;
+        }
+    }
+};
+
+
+flechaIzquierda.addEventListener("click", () => moverSlider("izquierda"));
+flechaDerecha.addEventListener("click", () => moverSlider("derecha"));
 
 function MostrarPerfumes(Perfumes) {
         Perfumes.forEach((perfume, i) => {

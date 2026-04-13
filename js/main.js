@@ -217,8 +217,11 @@ botonFinalizar.addEventListener("click", () => {
         const div = document.createElement("div");
         div.classList.add("resumen-item");
         div.innerHTML = `
-            <span class="item-nombre">${producto.Nombre}</span>
-            <span class="item-detalles">Cantidad: ${producto.cantidad} x $${producto.Precio.toLocaleString()}</span>
+        <img src="${producto.imagen}" class="img-mini-checkout" alt="${producto.Nombre}">
+            <div class="item-info-resumen">
+            <p class="item-nombre">${producto.Nombre}</p>
+            <p class="item-detalles">Cantidad: ${producto.cantidad} x $${producto.Precio.toLocaleString()}</p>
+        </div>
         `;
         contenedorResumenItems.appendChild(div);
     });

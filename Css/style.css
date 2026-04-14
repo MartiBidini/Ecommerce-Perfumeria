@@ -19,6 +19,11 @@
     --transition-fast: 0.3s ease;
 }
 
+.no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
 * {
     margin: 0;
     padding: 0;

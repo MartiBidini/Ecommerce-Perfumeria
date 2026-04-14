@@ -149,6 +149,9 @@
         overflow-y: auto;       
         display: flex;
         flex-direction: column;
+        position: fixed !important;
+        height: 100dvh !important;
+        z-index: 9999;
     }
 
     .producto_en_carrito {

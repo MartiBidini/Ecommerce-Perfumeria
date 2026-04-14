@@ -71,10 +71,12 @@ const panelCarrito = document.getElementById("panel_carrito");
 botonAbrirCarrito.addEventListener("click", (evento) => {
     evento.preventDefault();
     panelCarrito.classList.add("activo");
+    document.body.classList.add("no-scroll");
 });
 
 botonCerrarCarrito.addEventListener("click", () => {
     panelCarrito.classList.remove("activo");
+    document.body.classList.remove("no-scroll");
 });
 
 //Funcion de boton de las cards "Añadir al carrito"

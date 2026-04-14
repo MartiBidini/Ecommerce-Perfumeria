@@ -1,32 +1,98 @@
-/*header y hero*/
+/*header*/
 
 @media (max-width: 768px) {
-    header {
-        padding: 10px;
-        justify-content: space-around;
+
+    .nav {
+        padding: 12px 20px; 
     }
 
-    nav ul {
+    .nav_list {
+        display: flex;
+        justify-content: flex-start; 
+        gap: 20px; 
+        width: 100%;
+    }
+
+    .nav_item a {
+        font-size: 12px; 
+        letter-spacing: 1px;
+    }
+
+
+    .nav_item.carrito {
+        position: static; 
+        margin-left: auto; 
+        right: auto; 
+    }
+
+    .nav_item.carrito a i {
+        font-size: 18px; 
+    }
+
+    #contador-carrito {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+
+
+    .nav_item a::after {
         display: none;
     }
+}
 
-    .logo {
-        width: 100px;
+/*hero*/
+
+@media (max-width: 768px) {
+
+    .hero {
+        height: 100vh;
+        padding: 0 20px;
+        background-color: #000;
     }
 
-    .logo-hero { 
-        width: 180px; 
-        margin-bottom: 30px;
+.hero_image {
+        object-fit: cover;
+        object-position: 52%;
+        transform: scale(0.9); 
+
+        -webkit-mask-image: radial-gradient(
+            ellipse 60% 85% at center, 
+            black 0%, 
+            black 20%,             
+            rgba(0, 0, 0, 0.4) 60%, 
+            transparent 90%          
+        );
+        mask-image: radial-gradient(
+            ellipse 65% 85% at center,
+            black 0%,
+            black 20%,
+            rgba(0, 0, 0, 0.4) 60%,
+            transparent 90%
+        );
     }
 
-    .hero-content h1 {
-        font-size: 24px; 
+    .hero_content {
+        margin-top: 0;
     }
 
-    .btn-ver-catalogo {
-        padding: 12px 25px;
-        font-size: 14px;
+    .boton_hero {
+        left: 0;
+        padding: 14px 30px;
+        font-size: 12px;
     }
+
+    .overplay_hero {
+    background: linear-gradient(
+        to bottom, 
+        var(--bg-main) 0%, 
+        rgba(10, 10, 10, 0.6) 10%, 
+        rgba(10, 10, 10, 0) 25%, 
+        rgba(10, 10, 10, 0.6) 80%,
+        var(--bg-main) 100%
+    );
+
+}
 }
 
 /*Catalogo*/
@@ -66,6 +132,10 @@
 
     #flecha-izquierda { left: 10px; }
     #flecha-derecha { right: 10px; }
+
+    .catalogo h2 {
+        margin-top: 0px;
+    }
 }
 
 /*Carrito*/
@@ -116,5 +186,39 @@
 
     .header-form h2 {
         font-size: 22px;
+    }
+}
+
+/*footer*/
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 20px; 
+    }
+
+    .linea_amarilla {
+        margin: 0 auto 30px auto; 
+    }
+
+    .logo_footer {
+        width: 110px; 
+        margin-bottom: 30px;
+    }
+
+    .footer_items {
+        margin-bottom: 20px; 
+        font-size: 15px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer_items i {
+        font-size: 20px;
+    }
+
+    .footer_copy {
+        margin-top: 40px;
+        line-height: 1.4;
+        opacity: 0.7; 
     }
 }

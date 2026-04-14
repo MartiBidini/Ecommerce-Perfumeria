@@ -255,6 +255,7 @@ botonFinalizar.addEventListener("click", () => {
 
 btnCerrarModal.addEventListener("click", () => {
     CheckoutModal.classList.remove("modal-activo");
+    document.body.classList.remove("no-scroll");
 });
 
 function soloNumeros(evento) {
@@ -297,6 +298,7 @@ formCheckout.addEventListener("submit", (evento) => {
             mostrarCarrito();
             formCheckout.reset(); 
             CheckoutModal.classList.remove("modal-activo");
+            document.body.classList.remove("no-scroll");
         }
     });
 });

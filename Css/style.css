@@ -234,10 +234,10 @@ html{
 
 /*Main*/
 .title_main {
-    font-size: 36px;
+    font-size: 32px;
     text-align: center;
     color: #D4AF37;
-    margin: 20px 0 15px 0;
+    margin: 20px 0 5px 0;
     letter-spacing: 2px;
     font-weight: 500;
 
@@ -247,6 +247,84 @@ html{
     padding: 60px 0 40px 0;
     max-width: 1400px;
     margin: 0 auto;
+}
+
+.filtros-catalogo {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin: 25px auto 20px;
+    padding: 0;
+    max-width: 1024px;
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    min-width: 200px;
+    flex: 1 1 240px;
+}
+
+.filtro-item label {
+    color: var(--text-secondary);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.filtro-botones {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filtro-btn {
+    background-color: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.16);
+    color: var(--text-secondary);
+    border-radius: 999px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    outline: none;
+    min-width: 80px;
+    text-align: center;
+}
+
+.filtro-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(212, 175, 55, 0.32);
+}
+
+.filtro-btn.activo {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-hover));
+    color: var(--bg-main);
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.filtro-btn.activo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
+}
+
+.sin-resultados {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+    font-size: 18px;
+    text-align: center;
 }
 
 .catalogo h2 {
@@ -315,7 +393,7 @@ html{
 .card {
     min-width: 300px;
     background-color: var(--bg-card);
-    padding: 25px 20px;
+    padding: 16px 18px;
     border-radius: 20px;
     text-align: center;
     border: var(--border-subtle);
@@ -333,9 +411,9 @@ html{
 
 .card img {
     width: 100%;
-    height: 220px;
+    height: 170px;
     object-fit: contain;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     transition: transform 0.6s ease;
 }
 

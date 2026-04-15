@@ -6,8 +6,8 @@ async function cargarProductos() {
     
     Perfumes = await productos.json();
     
-    MostrarPerfumes(Perfumes);
-    AñadirAlCarrito();
+    configurarFiltros();
+    aplicarFiltros();
     mostrarCarrito();
 }
 
@@ -39,12 +39,91 @@ const moverSlider = (direccion) => {
     }
 };
 
+let filtroGeneroSeleccionado = "Todos";
+let filtroMomentoSeleccionado = "Todos";
+const filtroGenero = document.getElementById("filtro-genero");
+const filtroMomento = document.getElementById("filtro-momento");
+
+function obtenerGenero(perfume) {
+    const categoria = perfume.Categoria?.toLowerCase() || "";
+    if (categoria.includes("mujer") && categoria.includes("hombre")) return "Unisex";
+    if (categoria.includes("mujer")) return "Mujer";
+    if (categoria.includes("hombre")) return "Hombre";
+    return "Todos";
+}
+
+function obtenerMomentos(perfume) {
+    const categoria = perfume.Categoria?.toLowerCase() || "";
+    const momentos = [];
+    if (categoria.includes("dia")) momentos.push("Dia");
+    if (categoria.includes("noche")) momentos.push("Noche");
+    return momentos.length ? momentos : ["Todos"];
+}
+
+function aplicarFiltros() {
+    const perfumesFiltrados = Perfumes.filter(perfume => {
+        const genero = obtenerGenero(perfume);
+        const momentos = obtenerMomentos(perfume);
+        const cumpleGenero = filtroGeneroSeleccionado === "Todos"
+            || genero === filtroGeneroSeleccionado
+            || (genero === "Unisex" && (filtroGeneroSeleccionado === "Hombre" || filtroGeneroSeleccionado === "Mujer"));
+        const cumpleMomento = filtroMomentoSeleccionado === "Todos"
+            || momentos.includes(filtroMomentoSeleccionado);
+        return cumpleGenero && cumpleMomento;
+    });
+
+    MostrarPerfumes(perfumesFiltrados);
+    AñadirAlCarrito();
+    AOS.refresh();
+}
+
+function configurarFiltros() {
+    if (!filtroGenero || !filtroMomento) return;
+
+    filtroGenero.addEventListener("click", (e) => {
+        if (e.target.classList.contains("filtro-btn")) {
+            filtroGeneroSeleccionado = e.target.dataset.value;
+            actualizarBotonesActivos(filtroGenero, filtroGeneroSeleccionado);
+            aplicarFiltros();
+        }
+    });
+
+    filtroMomento.addEventListener("click", (e) => {
+        if (e.target.classList.contains("filtro-btn")) {
+            filtroMomentoSeleccionado = e.target.dataset.value;
+            actualizarBotonesActivos(filtroMomento, filtroMomentoSeleccionado);
+            aplicarFiltros();
+        }
+    });
+}
+
+function actualizarBotonesActivos(contenedor, valorSeleccionado) {
+    const botones = contenedor.querySelectorAll(".filtro-btn");
+    botones.forEach(btn => {
+        if (btn.dataset.value === valorSeleccionado) {
+            btn.classList.add("activo");
+        } else {
+            btn.classList.remove("activo");
+        }
+    });
+}
 
 flechaIzquierda.addEventListener("click", () => moverSlider("izquierda"));
 flechaDerecha.addEventListener("click", () => moverSlider("derecha"));
 
 function MostrarPerfumes(Perfumes) {
-        Perfumes.forEach((perfume, i) => {
+    ContenedorPerfumes.innerHTML = "";
+
+    if (Perfumes.length === 0) {
+        ContenedorPerfumes.innerHTML = `
+            <div class="sin-resultados">
+                <p>No se encontraron fragancias con ese filtro.</p>
+            </div>
+        `;
+        return;
+    }
+
+    Perfumes.forEach((perfume, i) => {
         const div = document.createElement("div");
         div.classList.add("card");
         
